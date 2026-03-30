@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1100" viewBox="0 0 1440 1100" font-family="Georgia, serif">
+  <rect width="1440" height="1100" fill="#FAF7F2"/>
+  <rect width="1440" height="64" fill="#6B2737"/>
+  <text x="48" y="38" fill="#C9A84C" font-size="20" font-weight="700">Vite &amp; Gourmand</text>
+  <text x="900" y="37" fill="#FAF7F2" font-size="13" font-family="sans-serif">Accueil</text>
+  <text x="980" y="37" fill="#FAF7F2" font-size="13" font-family="sans-serif">Nos menus</text>
+  <text x="1080" y="37" fill="#FAF7F2" font-size="13" font-family="sans-serif">Contact</text>
+  <rect x="1200" y="18" width="110" height="32" rx="4" fill="#C9A84C"/>
+  <text x="1255" y="39" fill="#2C2C2C" font-size="13" font-family="sans-serif" font-weight="600" text-anchor="middle">Se connecter</text>
+  <rect x="48" y="84" width="700" height="400" rx="8" fill="#7D3045"/>
+  <text x="398" y="290" fill="#FAF7F2" font-size="14" font-family="sans-serif" text-anchor="middle" opacity="0.6">[ Galerie photos du menu ]</text>
+  <text x="820" y="120" fill="#6B2737" font-size="28" font-weight="700">Menu Noël Prestige</text>
+  <rect x="820" y="136" width="80" height="24" rx="12" fill="#6B2737"/>
+  <text x="860" y="152" fill="#FAF7F2" font-size="11" font-family="sans-serif" text-anchor="middle">Noël</text>
+  <rect x="912" y="136" width="80" height="24" rx="12" fill="#C9A84C"/>
+  <text x="952" y="152" fill="#2C2C2C" font-size="11" font-family="sans-serif" text-anchor="middle">Classique</text>
+  <text x="820" y="192" fill="#888" font-size="14" font-family="sans-serif">8 personnes minimum   |   320 €</text>
+  <text x="820" y="224" fill="#888" font-size="13" font-family="sans-serif">Stock disponible : 5 commandes</text>
+  <line x1="820" y1="244" x2="1360" y2="244" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="820" y="272" fill="#2C2C2C" font-size="14" font-family="sans-serif">Un menu raffiné pour sublimer vos fêtes de fin d'année.</text>
+  <text x="820" y="292" fill="#2C2C2C" font-size="14" font-family="sans-serif">Préparé avec des produits frais et locaux.</text>
+  <text x="820" y="328" fill="#6B2737" font-size="16" font-weight="600">Entrée</text>
+  <text x="820" y="350" fill="#2C2C2C" font-size="13" font-family="sans-serif">Foie gras maison</text>
+  <text x="820" y="368" fill="#888" font-size="11" font-family="sans-serif">Allergènes : Oeufs, Sulfites</text>
+  <text x="820" y="396" fill="#6B2737" font-size="16" font-weight="600">Plat</text>
+  <text x="820" y="418" fill="#2C2C2C" font-size="13" font-family="sans-serif">Filet de boeuf en croûte</text>
+  <text x="820" y="436" fill="#888" font-size="11" font-family="sans-serif">Allergènes : Gluten, Oeufs</text>
+  <text x="820" y="464" fill="#6B2737" font-size="16" font-weight="600">Dessert</text>
+  <text x="820" y="486" fill="#2C2C2C" font-size="13" font-family="sans-serif">Bûche de Noël artisanale</text>
+  <text x="820" y="504" fill="#888" font-size="11" font-family="sans-serif">Allergènes : Gluten, Oeufs, Lait, Fruits à coque</text>
+  <rect x="820" y="524" width="520" height="80" rx="6" fill="#FAEEDA" stroke="#C9A84C" stroke-width="1"/>
+  <text x="840" y="548" fill="#854F0B" font-size="13" font-weight="600" font-family="sans-serif">Conditions importantes</text>
+  <text x="840" y="568" fill="#854F0B" font-size="12" font-family="sans-serif">À commander 7 jours avant la prestation.</text>
+  <text x="840" y="586" fill="#854F0B" font-size="12" font-family="sans-serif">Livraison : 5€ + 0,59€/km hors Bordeaux.</text>
+  <rect x="820" y="624" width="220" height="48" rx="4" fill="#6B2737"/>
+  <text x="930" y="653" fill="#FAF7F2" font-size="15" font-family="sans-serif" font-weight="600" text-anchor="middle">Commander ce menu</text>
+  <rect y="1060" width="1440" height="40" fill="#2C2C2C"/>
+  <text x="80" y="1084" fill="#C9A84C" font-size="14" font-weight="700">Vite &amp; Gourmand</text>
+  <text x="720" y="1084" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">Lun–Ven : 09h–18h  |  Sam : 10h–17h  |  Dim : Fermé</text>
+  <text x="1300" y="1084" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">Mentions légales  |  CGV</text>
+</svg>

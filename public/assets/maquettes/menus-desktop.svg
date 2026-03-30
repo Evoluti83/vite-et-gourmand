@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1100" viewBox="0 0 1440 1100" font-family="Georgia, serif">
+  <rect width="1440" height="1100" fill="#FAF7F2"/>
+  <rect width="1440" height="64" fill="#6B2737"/>
+  <text x="48" y="38" fill="#C9A84C" font-size="20" font-weight="700">Vite &amp; Gourmand</text>
+  <text x="900" y="37" fill="#FAF7F2" font-size="13" font-family="sans-serif">Accueil</text>
+  <text x="980" y="37" fill="#FAF7F2" font-size="13" font-family="sans-serif">Nos menus</text>
+  <text x="1080" y="37" fill="#FAF7F2" font-size="13" font-family="sans-serif">Contact</text>
+  <rect x="1200" y="18" width="110" height="32" rx="4" fill="#C9A84C"/>
+  <text x="1255" y="39" fill="#2C2C2C" font-size="13" font-family="sans-serif" font-weight="600" text-anchor="middle">Se connecter</text>
+  <text x="720" y="108" fill="#6B2737" font-size="30" text-anchor="middle">Nos menus</text>
+  <text x="720" y="132" fill="#888" font-size="14" font-family="sans-serif" text-anchor="middle">Trouvez le menu parfait pour votre événement</text>
+  <rect x="48" y="152" width="340" height="260" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <rect x="48" y="152" width="340" height="100" rx="8" fill="#7D3045"/>
+  <text x="218" y="207" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle" opacity="0.6">[ Photo menu ]</text>
+  <text x="68" y="278" fill="#6B2737" font-size="18" font-weight="700">Menu Noël Prestige</text>
+  <text x="68" y="300" fill="#888" font-size="12" font-family="sans-serif">Un menu raffiné pour sublimer vos fêtes</text>
+  <text x="68" y="328" fill="#2C2C2C" font-size="13" font-family="sans-serif">8 personnes min.   |   320 €</text>
+  <rect x="68" y="348" width="140" height="36" rx="4" fill="#6B2737"/>
+  <text x="138" y="371" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle">Voir le détail</text>
+  <rect x="440" y="152" width="340" height="260" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <rect x="440" y="152" width="340" height="100" rx="8" fill="#7D3045"/>
+  <text x="610" y="207" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle" opacity="0.6">[ Photo menu ]</text>
+  <text x="460" y="278" fill="#6B2737" font-size="18" font-weight="700">Menu Pâques Gourmand</text>
+  <text x="460" y="300" fill="#888" font-size="12" font-family="sans-serif">Célébrez Pâques avec nos spécialités</text>
+  <text x="460" y="328" fill="#2C2C2C" font-size="13" font-family="sans-serif">6 personnes min.   |   180 €</text>
+  <rect x="460" y="348" width="140" height="36" rx="4" fill="#6B2737"/>
+  <text x="530" y="371" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle">Voir le détail</text>
+  <rect x="832" y="152" width="340" height="260" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <rect x="832" y="152" width="340" height="100" rx="8" fill="#7D3045"/>
+  <text x="1002" y="207" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle" opacity="0.6">[ Photo menu ]</text>
+  <text x="852" y="278" fill="#6B2737" font-size="18" font-weight="700">Menu Classique Affaires</text>
+  <text x="852" y="300" fill="#888" font-size="12" font-family="sans-serif">Idéal pour vos repas professionnels</text>
+  <text x="852" y="328" fill="#2C2C2C" font-size="13" font-family="sans-serif">10 personnes min.   |   250 €</text>
+  <rect x="852" y="348" width="140" height="36" rx="4" fill="#6B2737"/>
+  <text x="922" y="371" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle">Voir le détail</text>
+  <rect x="48" y="444" width="340" height="260" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <rect x="48" y="444" width="340" height="100" rx="8" fill="#7D3045"/>
+  <text x="218" y="499" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle" opacity="0.6">[ Photo menu ]</text>
+  <text x="68" y="570" fill="#6B2737" font-size="18" font-weight="700">Menu Végétarien Printemps</text>
+  <text x="68" y="592" fill="#888" font-size="12" font-family="sans-serif">Une cuisine végétarienne créative</text>
+  <text x="68" y="620" fill="#2C2C2C" font-size="13" font-family="sans-serif">4 personnes min.   |   120 €</text>
+  <rect x="68" y="640" width="140" height="36" rx="4" fill="#6B2737"/>
+  <text x="138" y="663" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle">Voir le détail</text>
+  <rect x="48" y="740" width="1344" height="200" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="80" y="772" fill="#6B2737" font-size="16" font-weight="600">Filtrer les menus</text>
+  <text x="80" y="810" fill="#888" font-size="12" font-family="sans-serif">Prix maximum</text>
+  <rect x="80" y="820" width="200" height="32" rx="4" fill="#FAF7F2" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="170" y="840" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">500 €</text>
+  <text x="320" y="810" fill="#888" font-size="12" font-family="sans-serif">Thème</text>
+  <rect x="320" y="820" width="200" height="32" rx="4" fill="#FAF7F2" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="420" y="840" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">Tous les thèmes</text>
+  <text x="560" y="810" fill="#888" font-size="12" font-family="sans-serif">Régime</text>
+  <rect x="560" y="820" width="200" height="32" rx="4" fill="#FAF7F2" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="660" y="840" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">Tous régimes</text>
+  <text x="800" y="810" fill="#888" font-size="12" font-family="sans-serif">Nb personnes min.</text>
+  <rect x="800" y="820" width="200" height="32" rx="4" fill="#FAF7F2" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="900" y="840" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">Toutes tailles</text>
+  <rect x="1100" y="818" width="120" height="36" rx="4" fill="#6B2737"/>
+  <text x="1160" y="841" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle">Filtrer</text>
+  <rect y="1060" width="1440" height="40" fill="#2C2C2C"/>
+  <text x="80" y="1084" fill="#C9A84C" font-size="14" font-weight="700">Vite &amp; Gourmand</text>
+  <text x="720" y="1084" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">Lun–Ven : 09h–18h  |  Sam : 10h–17h  |  Dim : Fermé</text>
+  <text x="1300" y="1084" fill="#aaa" font-size="12" font-family="sans-serif" text-anchor="middle">Mentions légales  |  CGV</text>
+</svg>

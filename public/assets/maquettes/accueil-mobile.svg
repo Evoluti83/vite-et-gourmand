@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="1400" viewBox="0 0 390 1400" font-family="Georgia, serif">
+  <rect width="390" height="1400" fill="#FAF7F2"/>
+  <rect width="390" height="56" fill="#6B2737"/>
+  <text x="20" y="34" fill="#C9A84C" font-size="16" font-weight="700">Vite &amp; Gourmand</text>
+  <rect x="340" y="16" width="32" height="24" rx="3" fill="none" stroke="#FAF7F2" stroke-width="1.5"/>
+  <line x1="347" y1="24" x2="365" y2="24" stroke="#FAF7F2" stroke-width="1.5"/>
+  <line x1="347" y1="28" x2="365" y2="28" stroke="#FAF7F2" stroke-width="1.5"/>
+  <line x1="347" y1="32" x2="365" y2="32" stroke="#FAF7F2" stroke-width="1.5"/>
+  <rect y="56" width="390" height="300" fill="#6B2737"/>
+  <text x="24" y="110" fill="#FAF7F2" font-size="26" font-weight="700">La gastronomie</text>
+  <text x="24" y="144" fill="#FAF7F2" font-size="26" font-weight="700">à votre service,</text>
+  <text x="24" y="178" fill="#C9A84C" font-size="26" font-weight="700">depuis 25 ans</text>
+  <text x="24" y="214" fill="#FAF7F2" font-size="13" font-family="sans-serif" opacity="0.85">Julie et José s'occupent de tout.</text>
+  <rect x="24" y="240" width="160" height="40" rx="4" fill="#C9A84C"/>
+  <text x="104" y="265" fill="#2C2C2C" font-size="13" font-family="sans-serif" font-weight="600" text-anchor="middle">Nos menus</text>
+  <rect x="200" y="240" width="140" height="40" rx="4" fill="none" stroke="#FAF7F2" stroke-width="1.5"/>
+  <text x="270" y="265" fill="#FAF7F2" font-size="13" font-family="sans-serif" text-anchor="middle">Contact</text>
+  <rect x="24" y="295" width="342" height="50" rx="6" fill="#7D3045"/>
+  <text x="195" y="325" fill="#FAF7F2" font-size="11" font-family="sans-serif" text-anchor="middle" opacity="0.6">[ Photo hero ]</text>
+  <text x="195" y="400" fill="#6B2737" font-size="20" text-anchor="middle">En chiffres</text>
+  <rect x="24" y="416" width="160" height="80" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="104" y="458" fill="#6B2737" font-size="28" font-weight="700" text-anchor="middle">25</text>
+  <text x="104" y="480" fill="#888" font-size="11" font-family="sans-serif" text-anchor="middle">Ans d'expérience</text>
+  <rect x="206" y="416" width="160" height="80" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="286" y="458" fill="#6B2737" font-size="28" font-weight="700" text-anchor="middle">500+</text>
+  <text x="286" y="480" fill="#888" font-size="11" font-family="sans-serif" text-anchor="middle">Événements</text>
+  <text x="195" y="540" fill="#6B2737" font-size="20" text-anchor="middle">Notre équipe</text>
+  <rect x="24" y="556" width="342" height="100" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <circle cx="75" cy="606" r="30" fill="#6B2737"/>
+  <text x="75" y="613" fill="#C9A84C" font-size="18" font-weight="700" text-anchor="middle">J</text>
+  <text x="130" y="596" fill="#2C2C2C" font-size="14" font-weight="600" font-family="sans-serif">Julie Dupont</text>
+  <text x="130" y="616" fill="#888" font-size="12" font-family="sans-serif">Cheffe cuisinière</text>
+  <rect x="24" y="668" width="342" height="100" rx="8" fill="#fff" stroke="#e0d8d0" stroke-width="0.5"/>
+  <circle cx="75" cy="718" r="30" fill="#6B2737"/>
+  <text x="75" y="725" fill="#C9A84C" font-size="18" font-weight="700" text-anchor="middle">J</text>
+  <text x="130" y="708" fill="#2C2C2C" font-size="14" font-weight="600" font-family="sans-serif">José Martin</text>
+  <text x="130" y="728" fill="#888" font-size="12" font-family="sans-serif">Gérant</text>
+  <rect y="800" width="390" height="500" fill="#fff"/>
+  <text x="195" y="836" fill="#6B2737" font-size="20" text-anchor="middle">Avis clients</text>
+  <rect x="24" y="852" width="342" height="90" rx="8" fill="#FAF7F2" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="44" y="876" fill="#C9A84C" font-size="14">★★★★★</text>
+  <text x="44" y="896" fill="#444" font-size="12" font-family="sans-serif" font-style="italic">"Prestation exceptionnelle pour notre Noël."</text>
+  <text x="44" y="928" fill="#888" font-size="11" font-family="sans-serif">Thomas D. — Décembre 2024</text>
+  <rect x="24" y="956" width="342" height="90" rx="8" fill="#FAF7F2" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="44" y="980" fill="#C9A84C" font-size="14">★★★★★</text>
+  <text x="44" y="1000" fill="#444" font-size="12" font-family="sans-serif" font-style="italic">"Julie et José sont des pros hors pair."</text>
+  <text x="44" y="1032" fill="#888" font-size="11" font-family="sans-serif">Sophie M. — Octobre 2024</text>
+  <rect x="24" y="1060" width="342" height="90" rx="8" fill="#FAF7F2" stroke="#e0d8d0" stroke-width="0.5"/>
+  <text x="44" y="1084" fill="#C9A84C" font-size="14">★★★★☆</text>
+  <text x="44" y="1104" fill="#444" font-size="12" font-family="sans-serif" font-style="italic">"Menu végétarien surprenant."</text>
+  <text x="44" y="1136" fill="#888" font-size="11" font-family="sans-serif">Marc L. — Septembre 2024</text>
+  <rect y="1340" width="390" height="60" fill="#2C2C2C"/>
+  <text x="24" y="1364" fill="#C9A84C" font-size="14" font-weight="700">Vite &amp; Gourmand</text>
+  <text x="24" y="1384" fill="#aaa" font-size="11" font-family="sans-serif">Mentions légales  |  CGV</text>
+</svg>
