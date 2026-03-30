@@ -1,0 +1,18 @@
+# Configuration sensible
+src/config/db.php
+
+# Uploads utilisateurs
+public/uploads/
+
+# Logs
+logs/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# XAMPP
+*.log
