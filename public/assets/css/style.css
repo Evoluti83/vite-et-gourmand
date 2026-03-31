@@ -966,3 +966,28 @@ main {
 .forgot-link:hover {
     color: var(--bordeaux);
 }
+
+/* ===== CONTACT ===== */
+.contact-info {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--bordure);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.contact-item strong {
+    color: var(--bordeaux);
+}
+
+.contact-item span {
+    color: var(--gris);
+}
