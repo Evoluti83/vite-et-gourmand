@@ -955,3 +955,14 @@ main {
         gap: 0;
     }
 }
+
+/* ===== CONNEXION ===== */
+.forgot-link {
+    font-size: 13px;
+    color: var(--gris);
+    text-decoration: underline;
+}
+
+.forgot-link:hover {
+    color: var(--bordeaux);
+}
