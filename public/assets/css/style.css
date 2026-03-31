@@ -991,3 +991,129 @@ main {
 .contact-item span {
     color: var(--gris);
 }
+
+/* ===== COMMANDE ===== */
+.commande-section {
+    padding: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.commande-section h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.commande-grid {
+    display: flex;
+    gap: 48px;
+    margin-top: 32px;
+}
+
+.commande-col {
+    flex: 1;
+}
+
+.commande-col h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid var(--bordure);
+}
+
+.commande-recap {
+    background: var(--blanc);
+    border: 0.5px solid var(--bordure);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 24px;
+}
+
+.commande-recap h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: var(--bordeaux);
+}
+
+.recap-ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--bordure);
+    font-size: 14px;
+}
+
+.recap-ligne:last-child {
+    border-bottom: none;
+}
+
+.recap-remise {
+    color: var(--color-text-success);
+    font-weight: 700;
+}
+
+.recap-total {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--bordeaux);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--bordeaux);
+    border-bottom: none;
+}
+
+.commande-submit {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.btn-commander {
+    padding: 16px 48px;
+    font-size: 16px;
+}
+
+.commande-success {
+    text-align: center;
+    padding: 80px 48px;
+}
+
+.success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--bordeaux);
+    color: var(--fond);
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.commande-success h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.commande-success p {
+    font-size: 16px;
+    color: var(--gris);
+    margin-bottom: 8px;
+}
+
+.commande-success .btn-primary {
+    margin-top: 24px;
+}
+
+/* ===== RESPONSIVE COMMANDE ===== */
+@media (max-width: 768px) {
+    .commande-section {
+        padding: 24px 20px;
+    }
+
+    .commande-grid {
+        flex-direction: column;
+        gap: 24px;
+    }
+}

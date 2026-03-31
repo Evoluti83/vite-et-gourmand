@@ -15,7 +15,7 @@ INSERT INTO role (libelle) VALUES
 INSERT INTO utilisateur (email, password, nom, prenom, gsm, adresse, ville, actif, role_id) VALUES
 ('jose@viteetgourmand.fr', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Martin', 'José', '0612345678', '12 rue des Saveurs', 'Bordeaux', TRUE, 1),
 ('julie@viteetgourmand.fr', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Dupont', 'Julie', '0698765432', '12 rue des Saveurs', 'Bordeaux', TRUE, 2),
-('client@test.fr', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Durand', 'Thomas', '0611223344', '5 avenue de la Paix', 'Bordeaux', TRUE, 3);
+('client@test.fr', '$2y$10$vvnbOfIf7qtnoVvplLzGW.DDfDdDJtaTDusm9EwLzSeCHxLalpeHy', 'Durand', 'Thomas', '0611223344', '5 avenue de la Paix', 'Bordeaux', TRUE, 3);
 
 -- Thèmes
 INSERT INTO theme (libelle) VALUES
