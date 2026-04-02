@@ -139,6 +139,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("UPDATE menu SET stock = stock - 1 WHERE menu_id = :id");
         $stmt->execute(['id' => $menu_id]);
 
+        mailConfirmationCommande(
+        $user['email'],
+        $user['prenom'],
+        $numero_cmd,
+        $menu['titre'],
+        $date_prestation,
+        $prix_total
+        );
+
         $success = true;
         $numero_commande = $numero_cmd;
     }

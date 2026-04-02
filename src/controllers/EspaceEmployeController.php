@@ -24,10 +24,21 @@ if ($action === 'update-statut' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             INSERT INTO historique_statut (commande_id, statut, commentaire)
             VALUES (:id, :statut, :commentaire)
         ")->execute(['id' => $commande_id, 'statut' => $nouveau_statut, 'commentaire' => $commentaire]);
-    }
+
+        $stmt = $pdo->prepare("SELECT u.email, u.prenom FROM utilisateur u JOIN commande c ON c.utilisateur_id = u.utilisateur_id WHERE c.commande_id = :id");
+        $stmt->execute(['id' => $commande_id]);
+        $client = $stmt->fetch();
+
+        if ($nouveau_statut === 'terminee' && $client) {
+        mailInvitationAvis($client['email'], $client['prenom'], (string)$commande_id);
+        }
+        if ($nouveau_statut === 'en_attente_retour_materiel' && $client) {
+        mailRetourMateriel($client['email'], $client['prenom'], (string)$commande_id);
+        }
+        
     header('Location: ' . APP_URL . '?page=espace-employe&action=detail-commande&id=' . $commande_id);
     exit;
-}
+    }
 
 if ($action === 'valider-avis' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $avis_id  = (int)($_POST['avis_id'] ?? 0);

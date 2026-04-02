@@ -54,6 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'ville'    => $ville,
             ]);
 
+            mailBienvenue($email, $prenom);
+
             $success = true;
         }
     }
