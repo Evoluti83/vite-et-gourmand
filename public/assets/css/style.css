@@ -1476,3 +1476,52 @@ main {
     margin-bottom: 12px;
     font-family: 'Playfair Display', serif;
 }
+
+/* ===== PAGES LÉGALES ===== */
+.legal-section {
+    padding: 48px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.legal-content h1 {
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+
+.legal-block {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 0.5px solid var(--bordure);
+}
+
+.legal-block:last-child {
+    border-bottom: none;
+}
+
+.legal-block h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--bordeaux);
+}
+
+.legal-block p {
+    font-size: 15px;
+    color: var(--texte);
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.legal-block ul {
+    margin-left: 24px;
+    margin-top: 8px;
+    line-height: 2;
+    color: var(--texte);
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .legal-section {
+        padding: 24px 20px;
+    }
+}
