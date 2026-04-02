@@ -6,6 +6,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'utilisateur') {
 }
 
 $pdo = getDB();
+require_once __DIR__ . '/../config/mongodb.php';
 $erreurs = [];
 $success = false;
 
@@ -118,6 +119,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             VALUES (:commande_id, 'en_attente', 'Commande créée')
         ");
         $stmt->execute(['commande_id' => $commande_id]);
+
+        $mongo = getMongoDB();
+        $mongo->commandes_stats->insertOne([
+            'commande_id'     => (int)$commande_id,
+            'menu_id'         => (int)$menu_id,
+            'menu_titre'      => $menu['titre'],
+            'date_commande'   => new MongoDB\BSON\UTCDateTime(),
+            'date_prestation' => $date_prestation,
+            'nb_personnes'    => (int)$nb_personnes,
+            'prix_menu'       => (float)$prix_menu,
+            'prix_livraison'  => (float)$prix_livraison,
+            'remise'          => $remise,
+            'prix_total'      => (float)$prix_total,
+            'statut'          => 'en_attente',
+            'ville_livraison' => $ville_livraison,
+            ]);
 
         $stmt = $pdo->prepare("UPDATE menu SET stock = stock - 1 WHERE menu_id = :id");
         $stmt->execute(['id' => $menu_id]);

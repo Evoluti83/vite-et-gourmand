@@ -16,3 +16,8 @@ Thumbs.db
 
 # XAMPP
 *.log
+
+# Composer
+vendor/
+composer.phar
+composer-setup.php
