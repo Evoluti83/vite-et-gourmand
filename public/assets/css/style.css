@@ -1429,3 +1429,50 @@ main {
         flex-direction: column;
     }
 }
+
+/* ===== ESPACE EMPLOYE ===== */
+.employe-filtres {
+    background: var(--blanc);
+    border: 0.5px solid var(--bordure);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+}
+
+.avis-moderation {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.avis-card-employe {
+    padding: 20px;
+}
+
+.avis-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.horaires-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.horaire-item {
+    background: var(--blanc);
+    border: 0.5px solid var(--bordure);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.horaire-jour {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--bordeaux);
+    margin-bottom: 12px;
+    font-family: 'Playfair Display', serif;
+}
