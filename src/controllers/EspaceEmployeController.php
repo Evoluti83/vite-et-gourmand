@@ -10,6 +10,80 @@ $action = $_GET['action'] ?? 'commandes';
 $erreurs = [];
 $success = false;
 
+if ($action === 'edit-menu' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $menu_id = (int)($_GET['id'] ?? 0);
+    $stmt = $pdo->prepare("SELECT * FROM menu WHERE menu_id = :id");
+    $stmt->execute(['id' => $menu_id]);
+    $menu_edit = $stmt->fetch();
+    $images_menu = $pdo->prepare("SELECT * FROM image_menu WHERE menu_id = :id ORDER BY ordre");
+    $images_menu->execute(['id' => $menu_id]);
+    $images_menu = $images_menu->fetchAll();
+    $themes  = $pdo->query("SELECT * FROM theme")->fetchAll();
+    $regimes = $pdo->query("SELECT * FROM regime")->fetchAll();
+}
+
+if ($action === 'save-menu' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $menu_id     = (int)($_POST['menu_id'] ?? 0);
+    $titre       = trim($_POST['titre'] ?? '');
+    $description = trim($_POST['description'] ?? '');
+    $nb_pers_min = (int)($_POST['nb_pers_min'] ?? 0);
+    $prix_base   = (float)($_POST['prix_base'] ?? 0);
+    $conditions  = trim($_POST['conditions'] ?? '');
+    $stock       = (int)($_POST['stock'] ?? 0);
+    $theme_id    = (int)($_POST['theme_id'] ?? 0);
+    $regime_id   = (int)($_POST['regime_id'] ?? 0);
+
+    $pdo->prepare("
+        UPDATE menu SET titre=:titre, description=:description, nb_pers_min=:nb_pers_min,
+        prix_base=:prix_base, conditions=:conditions, stock=:stock,
+        theme_id=:theme_id, regime_id=:regime_id
+        WHERE menu_id=:id
+    ")->execute([
+        'titre'       => $titre,
+        'description' => $description,
+        'nb_pers_min' => $nb_pers_min,
+        'prix_base'   => $prix_base,
+        'conditions'  => $conditions,
+        'stock'       => $stock,
+        'theme_id'    => $theme_id,
+        'regime_id'   => $regime_id,
+        'id'          => $menu_id,
+    ]);
+
+    if (!empty($_FILES['images']['name'][0])) {
+        $ordre = $pdo->query("SELECT MAX(ordre) AS max_ordre FROM image_menu WHERE menu_id = $menu_id")->fetch()['max_ordre'] ?? 0;
+        foreach ($_FILES['images']['tmp_name'] as $key => $tmp) {
+            if ($_FILES['images']['error'][$key] === 0) {
+                $ext      = pathinfo($_FILES['images']['name'][$key], PATHINFO_EXTENSION);
+                $filename = 'menu_' . $menu_id . '_' . time() . '_' . $key . '.' . $ext;
+                $dest     = __DIR__ . '/../../public/assets/images/menus/' . $filename;
+                if (move_uploaded_file($tmp, $dest)) {
+                    $ordre++;
+                    $pdo->prepare("INSERT INTO image_menu (menu_id, chemin, ordre) VALUES (:menu_id, :chemin, :ordre)")
+                        ->execute(['menu_id' => $menu_id, 'chemin' => 'assets/images/menus/' . $filename, 'ordre' => $ordre]);
+                }
+            }
+        }
+    }
+
+    header('Location: ' . APP_URL . '?page=espace-employe&action=menus&success=1');
+    exit;
+}
+
+if ($action === 'delete-image' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $image_id = (int)($_POST['image_id'] ?? 0);
+    $stmt = $pdo->prepare("SELECT * FROM image_menu WHERE image_id = :id");
+    $stmt->execute(['id' => $image_id]);
+    $img = $stmt->fetch();
+    if ($img) {
+        $path = __DIR__ . '/../../public/' . $img['chemin'];
+        if (file_exists($path)) unlink($path);
+        $pdo->prepare("DELETE FROM image_menu WHERE image_id = :id")->execute(['id' => $image_id]);
+    }
+    header('Location: ' . APP_URL . '?page=espace-employe&action=edit-menu&id=' . ($_POST['menu_id'] ?? 0));
+    exit;
+}
+
 if ($action === 'update-statut' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $commande_id    = (int)($_POST['commande_id'] ?? 0);
     $nouveau_statut = trim($_POST['statut'] ?? '');
@@ -30,15 +104,15 @@ if ($action === 'update-statut' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $client = $stmt->fetch();
 
         if ($nouveau_statut === 'terminee' && $client) {
-        mailInvitationAvis($client['email'], $client['prenom'], (string)$commande_id);
+            mailInvitationAvis($client['email'], $client['prenom'], (string)$commande_id);
         }
         if ($nouveau_statut === 'en_attente_retour_materiel' && $client) {
-        mailRetourMateriel($client['email'], $client['prenom'], (string)$commande_id);
+            mailRetourMateriel($client['email'], $client['prenom'], (string)$commande_id);
         }
-        
+    }
     header('Location: ' . APP_URL . '?page=espace-employe&action=detail-commande&id=' . $commande_id);
     exit;
-    }
+}
 
 if ($action === 'valider-avis' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $avis_id  = (int)($_POST['avis_id'] ?? 0);

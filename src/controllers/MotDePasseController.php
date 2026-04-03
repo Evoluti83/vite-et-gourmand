@@ -34,7 +34,27 @@ if ($etape === 'demande' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             ]);
 
             $lien = APP_URL . "?page=mot-de-passe&etape=reset&token=" . $token;
-            $success = true;
+
+        $subject = "Réinitialisation de votre mot de passe";
+        $body = "
+        <div style='font-family:sans-serif;max-width:600px;margin:0 auto'>
+            <div style='background:#6B2737;padding:24px;text-align:center'>
+                <h1 style='color:#C9A84C;margin:0'>Vite &amp; Gourmand</h1>
+            </div>
+            <div style='padding:32px;background:#FAF7F2'>
+                <h2 style='color:#6B2737'>Réinitialisation de mot de passe</h2>
+                <p>Vous avez demandé à réinitialiser votre mot de passe.</p>
+                <p>Cliquez sur le bouton ci-dessous pour choisir un nouveau mot de passe :</p>
+                <a href='{$lien}' style='background:#6B2737;color:#FAF7F2;padding:12px 24px;text-decoration:none;border-radius:4px;display:inline-block;margin-top:16px'>Réinitialiser mon mot de passe</a>
+                <p style='margin-top:24px;color:#888;font-size:13px'>Ce lien est valable 1 heure. Si vous n'avez pas demandé cette réinitialisation, ignorez cet email.</p>
+            </div>
+            <div style='background:#2C2C2C;padding:16px;text-align:center'>
+                <p style='color:#aaa;font-size:12px;margin:0'>Vite &amp; Gourmand — 12 rue des Saveurs, 33000 Bordeaux</p>
+            </div>
+        </div>";
+
+sendMail($email, $email, $subject, $body);
+$success = true;
         } else {
             $success = true;
         }

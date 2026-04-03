@@ -204,16 +204,43 @@ if ($action === 'employes') {
         ORDER BY nom ASC
     ")->fetchAll();
 }
-
 if ($action === 'stats') {
-    $stats = $pdo->query("
-        SELECT m.menu_id, m.titre AS menu_titre, COUNT(c.commande_id) AS nb_commandes, COALESCE(SUM(c.prix_total), 0) AS ca_total
+    $filtre_menu_id = (int)($_GET['menu_id'] ?? 0);
+    $filtre_debut   = $_GET['date_debut'] ?? '';
+    $filtre_fin     = $_GET['date_fin'] ?? '';
+
+    $where  = ["c.statut_actuel != 'annulee'"];
+    $params = [];
+
+    if ($filtre_menu_id) {
+        $where[]            = "m.menu_id = :menu_id";
+        $params['menu_id']  = $filtre_menu_id;
+    }
+    if ($filtre_debut) {
+        $where[]            = "c.date_commande >= :debut";
+        $params['debut']    = $filtre_debut . ' 00:00:00';
+    }
+    if ($filtre_fin) {
+        $where[]            = "c.date_commande <= :fin";
+        $params['fin']      = $filtre_fin . ' 23:59:59';
+    }
+
+    $whereSQL = implode(' AND ', $where);
+
+    $stmt = $pdo->prepare("
+        SELECT m.menu_id, m.titre AS menu_titre, 
+               COUNT(c.commande_id) AS nb_commandes, 
+               COALESCE(SUM(c.prix_total), 0) AS ca_total
         FROM menu m
-        LEFT JOIN commande c ON c.menu_id = m.menu_id AND c.statut_actuel != 'annulee'
+        LEFT JOIN commande c ON c.menu_id = m.menu_id AND $whereSQL
         GROUP BY m.menu_id, m.titre
         ORDER BY nb_commandes DESC
-    ")->fetchAll();
-    $menus_filtre = $pdo->query("SELECT menu_id, titre FROM menu ORDER BY titre")->fetchAll();
+    ");
+    $stmt->execute($params);
+    $stats = $stmt->fetchAll();
+
+    $ca_total_global = array_sum(array_column($stats, 'ca_total'));
+    $menus_filtre    = $pdo->query("SELECT menu_id, titre FROM menu ORDER BY titre")->fetchAll();
 }
 
 $page_titre = 'Espace administrateur';

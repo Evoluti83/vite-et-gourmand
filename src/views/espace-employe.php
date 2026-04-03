@@ -194,6 +194,7 @@
                         <p><?= $m['nb_pers_min'] ?> personnes min. — <?= number_format($m['prix_base'], 2, ',', ' ') ?> € — Stock : <?= $m['stock'] ?></p>
                     </div>
                     <div class="commande-item-actions">
+                        <a href="<?= APP_URL ?>?page=espace-employe&action=edit-menu&id=<?= $m['menu_id'] ?>" class="btn-outline-dark">Modifier</a>
                         <form method="POST" action="/vite-et-gourmand/public/index.php?page=espace-employe&action=toggle-menu">
                             <input type="hidden" name="menu_id" value="<?= $m['menu_id'] ?>">
                             <input type="hidden" name="actif" value="<?= $m['actif'] ?>">
@@ -204,6 +205,96 @@
                     </div>
                 </div>
                 <?php endforeach; ?>
+            </div>
+
+        <?php elseif ($action === 'edit-menu'): ?>
+            <a href="<?= APP_URL ?>?page=espace-employe&action=menus" class="btn-retour">← Retour</a>
+            <h1>Modifier : <?= htmlspecialchars($menu_edit['titre']) ?></h1>
+
+            <div class="detail-commande-grid">
+                <div class="detail-commande-col">
+                    <div class="card">
+                        <form method="POST" action="/vite-et-gourmand/public/index.php?page=espace-employe&action=save-menu" enctype="multipart/form-data">
+                            <input type="hidden" name="menu_id" value="<?= $menu_edit['menu_id'] ?>">
+                            <div class="form-group">
+                                <label>Titre *</label>
+                                <input type="text" name="titre" value="<?= htmlspecialchars($menu_edit['titre']) ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="description" rows="4"><?= htmlspecialchars($menu_edit['description']) ?></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nb personnes min *</label>
+                                    <input type="number" name="nb_pers_min" value="<?= $menu_edit['nb_pers_min'] ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Prix de base (€) *</label>
+                                    <input type="number" step="0.01" name="prix_base" value="<?= $menu_edit['prix_base'] ?>" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Stock</label>
+                                    <input type="number" name="stock" value="<?= $menu_edit['stock'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Thème</label>
+                                    <select name="theme_id">
+                                        <?php foreach ($themes as $t): ?>
+                                            <option value="<?= $t['theme_id'] ?>" <?= $menu_edit['theme_id'] == $t['theme_id'] ? 'selected' : '' ?>>
+                                                <?= htmlspecialchars($t['libelle']) ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Régime</label>
+                                <select name="regime_id">
+                                    <?php foreach ($regimes as $r): ?>
+                                        <option value="<?= $r['regime_id'] ?>" <?= $menu_edit['regime_id'] == $r['regime_id'] ? 'selected' : '' ?>>
+                                            <?= htmlspecialchars($r['libelle']) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Conditions</label>
+                                <textarea name="conditions" rows="3"><?= htmlspecialchars($menu_edit['conditions']) ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Ajouter des photos</label>
+                                <input type="file" name="images[]" multiple accept="image/*">
+                                <small>Formats acceptés : JPG, PNG, WEBP</small>
+                            </div>
+                            <button type="submit" class="btn-primary">Enregistrer</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="detail-commande-col">
+                    <div class="card">
+                        <h3>Galerie d'images</h3>
+                        <?php if (empty($images_menu)): ?>
+                            <p style="color:var(--gris);font-size:13px">Aucune image pour ce menu.</p>
+                        <?php else: ?>
+                            <div class="galerie-grid">
+                                <?php foreach ($images_menu as $img): ?>
+                                <div class="galerie-item">
+                                    <img src="<?= APP_URL ?>/<?= htmlspecialchars($img['chemin']) ?>" alt="Image menu">
+                                    <form method="POST" action="/vite-et-gourmand/public/index.php?page=espace-employe&action=delete-image">
+                                        <input type="hidden" name="image_id" value="<?= $img['image_id'] ?>">
+                                        <input type="hidden" name="menu_id" value="<?= $menu_edit['menu_id'] ?>">
+                                        <button type="submit" class="btn-danger" style="width:100%;margin-top:4px">Supprimer</button>
+                                    </form>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
 
         <?php elseif ($action === 'horaires'): ?>
