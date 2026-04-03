@@ -1,6 +1,4 @@
 # Configuration sensible
-src/config/db.php
-
 # Uploads utilisateurs
 public/uploads/
 
