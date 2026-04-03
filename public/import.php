@@ -17,3 +17,9 @@ try {
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
 }
+
+// Mise à jour des mots de passe
+$hash = password_hash('Password1!', PASSWORD_BCRYPT);
+$pdo->prepare("UPDATE utilisateur SET password = :hash WHERE email IN ('client@test.fr', 'julie@viteetgourmand.fr', 'jose@viteetgourmand.fr')")
+    ->execute(['hash' => $hash]);
+echo "<br>Mots de passe mis à jour !";
