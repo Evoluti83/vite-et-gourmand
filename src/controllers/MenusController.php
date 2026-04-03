@@ -38,7 +38,7 @@ $stmt = $pdo->prepare("
     FROM menu m
     LEFT JOIN theme t ON m.theme_id = t.theme_id
     LEFT JOIN regime r ON m.regime_id = r.regime_id
-    LEFT JOIN image_menu i ON i.menu_id = m.menu_id AND i.ordre = 1
+    LEFT JOIN image_menu i ON i.image_id = (SELECT image_id FROM image_menu WHERE menu_id = m.menu_id ORDER BY ordre LIMIT 1)
     WHERE $whereSQL
     ORDER BY m.menu_id ASC
 ");
