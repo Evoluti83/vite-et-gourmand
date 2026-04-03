@@ -19,6 +19,12 @@ Vite & Gourmand est une application de commande en ligne pour une entreprise de 
 
 https://vite-gourmand-2026-3769160ca332.herokuapp.com
 
+## Liens du projet
+
+- **Application** : https://vite-gourmand-2026-3769160ca332.herokuapp.com
+- **GitHub** : https://github.com/Evoluti83/vite-et-gourmand
+- **Gestion de projet (Trello)** : https://trello.com/b/bwMKgCcx/vite-gourmand
+
 ## Comptes de démonstration
 
 | Rôle | Email | Mot de passe |
