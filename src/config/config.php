@@ -1,7 +1,8 @@
 <?php
 
 define('APP_NAME', 'Vite & Gourmand');
-define('APP_URL', 'http://localhost/vite-et-gourmand/public');
+$app_url = getenv('APP_URL') ?: 'http://localhost/vite-et-gourmand/public';
+define('APP_URL', $app_url);
 define('APP_VERSION', '1.0.0');
 
 define('BORDEAUX_LAT', 44.8378);
