@@ -12,9 +12,7 @@ services:
       - MYSQL_DATABASE=vite_et_gourmand
     depends_on:
       - db
-    volumes:
-      - ./public/assets/images:/var/www/html/public/assets/images
-
+    
   db:
     image: mysql:8.0
     container_name: vite-gourmand-db

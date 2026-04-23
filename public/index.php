@@ -1,6 +1,7 @@
 <?php
 ob_start();
 require_once __DIR__ . '/../src/config/config.php';
+require_once __DIR__ . '/../src/config/autoload.php';
 require_once __DIR__ . '/../src/config/db.php';
 require_once __DIR__ . '/../src/config/mongodb.php';
 require_once __DIR__ . '/../src/config/mail.php';

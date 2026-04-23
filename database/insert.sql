@@ -40,12 +40,15 @@ INSERT INTO menu (titre, description, nb_pers_min, prix_base, conditions, stock,
 ('Menu Végétarien Printemps', 'Une cuisine végétarienne créative et savoureuse', 4, 120.00, 'À commander 3 jours avant la prestation', 6, TRUE, 4, 2);
 
 -- Images menus
-INSERT INTO image_menu (menu_id, chemin, ordre) VALUES
-(1, 'images/menus/noel-prestige-1.jpg', 1),
-(1, 'images/menus/noel-prestige-2.jpg', 2),
-(2, 'images/menus/paques-gourmand-1.jpg', 1),
-(3, 'images/menus/classique-affaires-1.jpg', 1),
-(4, 'images/menus/vegetarien-printemps-1.jpg', 1);
+INSERT INTO image_menu (image_id, menu_id, chemin, ordre) VALUES
+(6, 1, 'assets/images/menus/menu_1_1775206297_0.jpg', 3),
+(7, 1, 'assets/images/menus/menu_1_1775206384_0.jpg', 4),
+(8, 2, 'assets/images/menus/menu_2_1775206459_0.jpg', 2),
+(9, 2, 'assets/images/menus/menu_2_1775206469_0.jpg', 3),
+(10, 3, 'assets/images/menus/menu_3_1775206483_0.jpg', 1),
+(11, 3, 'assets/images/menus/menu_3_1775206490_0.jpg', 2),
+(12, 4, 'assets/images/menus/menu_4_1775206559_0.jpg', 1),
+(13, 4, 'assets/images/menus/menu_4_1775206565_0.jpg', 2);
 
 -- Plats
 INSERT INTO plat (nom, type) VALUES
