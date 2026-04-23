@@ -8,16 +8,14 @@ Vite & Gourmand est une application de commande en ligne pour une entreprise de 
 
 ## Stack technique
 
-- **Back-end** : PHP 8.2 (PDO, pattern MVC, Front Controller)
+- **Back-end** : PHP 8.3 (PDO, pattern MVC, Front Controller, architecture en couches)
+- **Architecture** : Entities / Repositories / Services / Controllers
 - **Base de données relationnelle** : MySQL/MariaDB
 - **Base de données NoSQL** : MongoDB Atlas
 - **Mails** : PHPMailer + Gmail SMTP
 - **Déploiement** : Heroku + JawsDB
+- **Conteneurisation** : Docker + Docker Compose
 - **Versioning** : Git/GitHub
-
-## URL de production
-
-https://vite-gourmand-2026-3769160ca332.herokuapp.com
 
 ## Liens du projet
 
@@ -33,14 +31,60 @@ https://vite-gourmand-2026-3769160ca332.herokuapp.com
 | Employé | julie@viteetgourmand.fr | Password1! |
 | Utilisateur | client@test.fr | Password1! |
 
-## Déploiement en local
+## Déploiement avec Docker (recommandé)
 
 ### Prérequis
 
-- XAMPP (PHP 8.2+, Apache, MySQL)
+- Docker Desktop installé et lancé
+- Git
+
+### Installation
+
+**1. Cloner le repository**
+```bash
+git clone https://github.com/Evoluti83/vite-et-gourmand.git
+cd vite-et-gourmand
+```
+
+**2. Lancer les containers**
+```bash
+docker compose up --build
+```
+
+Docker va automatiquement :
+- Créer le container PHP 8.3 + Apache
+- Créer le container MySQL 8.0
+- Importer `database/create.sql` et `database/insert.sql`
+- Installer les dépendances Composer
+
+**3. Accéder à l'application**
+http://localhost:8080
+
+**4. Mettre à jour les mots de passe**
+
+```bash
+docker exec -it vite-gourmand-db mysql -u vite_user -pvite_pass vite_et_gourmand -e "
+UPDATE utilisateur SET password = '\$2y\$10\$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+WHERE email IN ('client@test.fr', 'julie@viteetgourmand.fr', 'jose@viteetgourmand.fr');
+"
+```
+
+**5. Arrêter les containers**
+
+```bash
+docker compose down
+```
+
+---
+
+## Déploiement en local sans Docker (Laragon)
+
+### Prérequis
+
+- Laragon (PHP 8.3+, Apache, MySQL)
 - Composer
 - Git
-- Extension PHP MongoDB (`php_mongodb.dll`)
+- Extension PHP MongoDB
 
 ### Installation
 
@@ -57,90 +101,73 @@ php composer.phar install
 
 **3. Activer l'extension MongoDB**
 
-- Télécharger `php_mongodb.dll` depuis pecl.php.net (version PHP 8.2 TS x64)
-- Copier dans `C:\xampp\php\ext\`
-- Ajouter `extension=mongodb` dans `C:\xampp\php\php.ini`
-- Redémarrer Apache
+- Télécharger `php_mongodb.dll` depuis pecl.php.net (version PHP 8.3 TS x64)
+- Copier dans `C:\laragon\bin\php\php-8.3.x\ext\`
+- Ajouter `extension=mongodb` dans `php.ini`
+- Redémarrer Laragon
 
 **4. Créer la base de données**
 
-- Ouvrir phpMyAdmin : `http://localhost/phpmyadmin`
+- Ouvrir phpMyAdmin via Laragon
 - Créer une base de données `vite_et_gourmand`
 - Importer `database/create.sql`
 - Importer `database/insert.sql`
 
-**5. Configurer la connexion base de données**
+**5. Lancer l'application**
 
-Le fichier `src/config/db.php` détecte automatiquement l'environnement :
-- En local : utilise `localhost`, user `root`, password vide, base `vite_et_gourmand`
-- En production : utilise la variable d'environnement `JAWSDB_URL`
-
-**6. Configurer MongoDB**
-
-Dans `src/config/mongodb.php`, vérifier la chaîne de connexion Atlas :
-```php
-$client = new MongoDB\Client(
-    'mongodb+srv://vite_gourmand:PASSWORD@cluster0.7dp6pji.mongodb.net/'
-);
-```
-
-**7. Configurer PHPMailer**
-
-Dans `src/config/mail.php`, renseigner les identifiants Gmail :
-```php
-$mail->Username = 'votre.email@gmail.com';
-$mail->Password = 'votre_app_password';
-```
-
-> En production, utiliser des variables d'environnement : `getenv('SMTP_USER')` et `getenv('SMTP_PASS')`
-
-**8. Mettre à jour les mots de passe de démonstration**
-
-Créer et exécuter un fichier temporaire `public/hash.php` :
-```php
-<?php
-echo password_hash('Password1!', PASSWORD_BCRYPT);
-```
-
-Puis mettre à jour dans phpMyAdmin :
-```sql
-UPDATE utilisateur 
-SET password = 'HASH_GENERE' 
-WHERE email IN ('client@test.fr', 'julie@viteetgourmand.fr', 'jose@viteetgourmand.fr');
-```
-
-**9. Lancer l'application**
-
-- Démarrer Apache et MySQL dans XAMPP
+- Démarrer Apache et MySQL dans Laragon
 - Accéder à : `http://localhost/vite-et-gourmand/public`
 
+---
+
 ## Structure du projet
-```
 vite-et-gourmand/
 ├── database/
-│   ├── create.sql          # Schéma de la base de données
-│   ├── insert.sql          # Données de démonstration
-│   └── mcd.png             # Modèle Conceptuel de Données
+│   ├── create.sql              # Schéma de la base de données (16 tables)
+│   ├── insert.sql              # Données de démonstration
+│   └── mcd.png                 # Modèle Conceptuel de Données
+├── docker/
+│   └── apache.conf             # Configuration Apache pour Docker
 ├── public/
-│   ├── index.php           # Front Controller
-│   ├── .htaccess           # Réécriture d'URL
+│   ├── index.php               # Front Controller
+│   ├── .htaccess               # Réécriture d'URL
+│   ├── api/
+│   │   └── menus.php           # Endpoint JSON pour la Fetch API
 │   └── assets/
-│       ├── css/style.css   # Styles
-│       ├── js/main.js      # JavaScript
-│       └── images/         # Images
+│       ├── css/style.css       # Styles CSS personnalisés
+│       ├── js/main.js          # JavaScript
+│       └── images/             # Images
 ├── src/
 │   ├── config/
-│   │   ├── config.php      # Constantes application
-│   │   ├── db.php          # Connexion PDO (Singleton)
-│   │   ├── mongodb.php     # Connexion MongoDB (Singleton)
-│   │   └── mail.php        # PHPMailer + fonctions mail
-│   ├── controllers/        # Controllers MVC
-│   └── views/              # Vues PHP
-├── vendor/                 # Dépendances Composer (ignoré par Git)
+│   │   ├── autoload.php        # Chargement automatique des classes
+│   │   ├── config.php          # Constantes application
+│   │   ├── db.php              # Connexion PDO (Singleton)
+│   │   ├── mongodb.php         # Connexion MongoDB (Singleton)
+│   │   └── mail.php            # PHPMailer + fonctions mail
+│   ├── entities/               # Objets métier (Menu, Commande, Utilisateur)
+│   ├── repositories/           # Accès aux données PDO
+│   ├── services/               # Logique métier
+│   ├── controllers/            # Controllers MVC
+│   └── views/                  # Vues PHP
+├── vendor/                     # Dépendances Composer (ignoré par Git)
 ├── composer.json
-├── Procfile                # Configuration Heroku
+├── Dockerfile                  # Image Docker PHP + Apache
+├── docker-compose.yml          # Orchestration containers
+├── Procfile                    # Configuration Heroku
 └── README.md
-```
+
+## Architecture en couches
+Requête HTTP
+↓
+Controller        ← orchestration, session, guard RBAC
+↓
+Service           ← logique métier (calcul prix, validation)
+↓
+Repository        ← accès données PDO
+↓
+Entity            ← objets métier typés
+↓
+Base de données   ← MySQL / MongoDB
 
 ## Déploiement sur Heroku
 
@@ -148,19 +175,15 @@ vite-et-gourmand/
 ```bash
 heroku create nom-de-app
 heroku addons:create jawsdb:kitefin
-```
-
-**2. Configurer les variables d'environnement**
-```bash
 heroku config:set APP_URL=https://nom-de-app.herokuapp.com
 ```
 
-**3. Pousser le code**
+**2. Pousser le code**
 ```bash
 git push heroku main
 ```
 
-**4. Importer la base de données**
+**3. Importer la base de données**
 
 Créer temporairement `public/import.php` pour exécuter `create.sql` et `insert.sql` via PHP, puis le supprimer après import.
 
@@ -169,7 +192,7 @@ Créer temporairement `public/import.php` pour exécuter `create.sql` et `insert
 | US | Fonctionnalité |
 |----|----------------|
 | US01 | Page d'accueil avec avis validés |
-| US02 | Vue globale menus + filtres AJAX |
+| US02 | Vue globale menus + filtres Fetch API (sans rechargement) |
 | US03 | Détail menu avec composition et allergènes |
 | US04 | Inscription + mail de bienvenue |
 | US05 | Connexion + déconnexion |
@@ -180,9 +203,9 @@ Créer temporairement `public/import.php` pour exécuter `create.sql` et `insert
 | US17-23 | Espace employé complet |
 | US24-29 | Espace administrateur complet |
 
-## Notes importantes pour la soutenance
+## Notes importantes
 
-- **Frais de livraison km** : En production, intégration de l'API Google Maps Distance Matrix pour calculer la distance réelle
-- **Mots de passe en dur** : En production, variables d'environnement `getenv()`
+- **Frais de livraison km** : En production, intégration de l'API Google Maps Distance Matrix
+- **Mots de passe SMTP** : En production, variables d'environnement `getenv('SMTP_PASS')`
 - **Stats admin** : Données depuis MongoDB Atlas (collection `commandes_stats`)
-- **Formulaires POST** : URL directe `index.php` contourne une limitation du `.htaccess` XAMPP en local
+- **Formulaires POST** : URL directe `index.php` contourne une limitation du `.htaccess` Laragon en local
