@@ -13,11 +13,12 @@ function getDB(): PDO {
             $dbname   = ltrim($db['path'], '/');
             $port     = $db['port'] ?? 3306;
         } else {
-            $host     = 'localhost';
-            $user     = 'root';
-            $password = '';
-            $dbname   = 'vite_et_gourmand';
-            $port     = 3306;
+            // Docker
+            $host     = getenv('MYSQL_HOST')     ?: 'localhost';
+            $user     = getenv('MYSQL_USER')     ?: 'root';
+            $password = getenv('MYSQL_PASSWORD') ?: '';
+            $dbname   = getenv('MYSQL_DATABASE') ?: 'vite_et_gourmand';
+            $port     = getenv('MYSQL_PORT')     ?: 3306;
         }
 
         $pdo = new PDO(

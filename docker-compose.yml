@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: vite-gourmand-app
+    ports:
+      - "8080:80"
+    environment:
+      - APP_URL=http://localhost:8080
+      - MYSQL_HOST=db
+      - MYSQL_USER=vite_user
+      - MYSQL_PASSWORD=vite_pass
+      - MYSQL_DATABASE=vite_et_gourmand
+    depends_on:
+      - db
+    volumes:
+      - ./public/assets/images:/var/www/html/public/assets/images
+
+  db:
+    image: mysql:8.0
+    container_name: vite-gourmand-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vite_et_gourmand
+      MYSQL_USER: vite_user
+      MYSQL_PASSWORD: vite_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./database/create.sql:/docker-entrypoint-initdb.d/01-create.sql
+      - ./database/insert.sql:/docker-entrypoint-initdb.d/02-insert.sql
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
